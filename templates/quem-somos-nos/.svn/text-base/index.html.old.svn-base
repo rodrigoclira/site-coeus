@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Quem Somos - COEUS</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+        <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+        <script type="text/javascript">						
+			function Change(name,url2){				
+				$("#" + name + "  img").attr('src',url2);
+				$("#" + name + "  .info").css("visibility", "visible");																												
+			}
+			
+			function Unchange(name,url1){
+				
+				$("#" + name + "  img").attr('src',url1);
+				$("#" + name + "  .info").css("visibility", "hidden");	
+																					
+			}
+			
+        </script>
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+
+
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>        
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li class="selected"><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucao %}					<li><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li><a href="/blog/">Blog</a></li>
+					<li><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+            	<div id="banerTitleWrap" >
+                    <div id="bannerB">                               
+                        <div id="chipL"></div>
+                        <span id="rib"></span>
+                       <span id="Title">Quem Somos</span>
+                    </div>
+                 </div>
+                <div class="navigation">
+                	<ul class="navigationList">
+                    	<li>
+                        	<a href="/">Home</a>
+                            &raquo; 					 											
+                        </li>
+                        <li>
+                        	<a href="#">Quem Somos</a>                            
+                        </li>
+                    </ul>
+                </div>
+				<div class="textSection">
+				<h2>Histórico</h2>
+				<p> A Coeus surgiu da iniciativa de cinco alunos no último ano do curso de Engenharia da
+Computação da Universidade de Pernambuco. Todos atuavam na área acadêmica, profissional e tinham em comum
+a grande vontade de aplicar na área profissional as técnicas de Inteligência
+Computacional e Artificial aprendidas na academia. Além disso, parte do grupo possuía
+experiência no desenvolvimento para plataformas móveis, Android e iOS. O grupo já contava com mais de
+10 trabalhos publicados em congresso quando decidiram concorrer a uma vaga na incubadora
+do Instituto Tecnológico de Pernambuco (ITEP). Motivados pelos eventos esportivos que
+iriam acontecer no país também decidiram atuar no desenvolvimento de aplicativos para Smart TVs.
+Hoje o grupo continua em paralelo com a pesquisa utilizando técnicas da Computação
+Inteligente para aprimorar o resultado das soluções móveis desenvolvidos na Coeus. </p>
+                </div>
+                <div class="textSection">				
+				<h2>Visão</h2>
+				<p>
+                	Ser referência mundial no desenvolvimento de soluções inteligentes que facilitem a vida das pessoas.
+                </p>
+                </div>
+                <div class="textSection">
+                <h2>Missão</h2>
+				<p>
+                	Simplificar a vida das pessoas através de soluções móveis, inovadoras e inteligentes. 
+                </p>
+                </div>
+                <div class="textSection">
+                <h2>Valores</h2>
+				<p>
+                	Dentre os valores da Coeus se destacam:
+
+					<ul class="bulletList">
+						<li><p> Ética pessoal e empresarial </p></li>
+						<li><p> Respeito ao ambiente de trabalho e às pessoas </p></li>
+						<li><p> Compromisso com a satisfação dos nossos clientes </p></li>
+						<li><p> Autonomia e liberdade de ação, mas com responsabilidade </p></li>
+						<li><p> Valorização dos colaboradores da instituição </p></li>
+					</ul>
+                </p>
+                </div>
+                <div class="equipe">
+                    <h2>Equipe</h2>
+                    <ul class="portfolio">
+				{% for person in persons %}
+			  
+                    	<li id="{{ person.name.lower.split|join:'-' }}" >
+                        	<a href="/quem-somos/{{ person.name.lower.split|join:'-' }}"><img class="ImageBorderShadow" src="/media/{{ person.photo1 }}" onMouseOver="Change('{{ person.name.lower|slugify }}','/media/{{ person.photo2 }}');" onMouseOut="Unchange('{{ person.name.lower.split|join:'-' }}','/media/{{ person.photo1 }}');"/></a>
+                            <div class="info">                            	
+                                <p class="equipeName">{{ person.name }}</p>
+                            	<p class="equipeFunction">{{ person.responsability }}</p>
+                            </div>
+                        </li>
+				{% empty %}
+					<p> PESSOAS NÃO ENCONTRADAS</p>
+				{% endfor %}
+                    </ul>
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+                        <a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p>&#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>  

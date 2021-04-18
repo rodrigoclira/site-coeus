@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>COEUS</title>
+		<script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+		<script src="/media/Scripts/jquery.nivo.slider.pack.js" ></script>
+         <link rel="shortcut icon" href="" type="image/x-icon" />  
+        <link rel="stylesheet" type="text/css" media="screen" href="/media/css/nivo-slider.css" />
+        <link rel="stylesheet" href="/media/css/default.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="/media/css/nivo_slider.css" type="text/css"/>
+        <link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+		<script> 
+			$(document).ready(function(){         
+				
+				$(window).load(function() {
+					$('#slider').nivoSlider({
+						effect: 'fold',
+						directionNav: true,
+						directionNavHide: true,
+						pauseTime: 5000				
+						});
+				});
+					   
+			}); 
+		</script>
+		<style>
+			.fb-like{
+				margin-left:824px;
+			}
+		</style>
+	
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>
+
+		 <script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-34174132-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); 
+			ga.type = 'text/javascript'; 
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+		</script>
+	</head>
+	<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li class="selected"><a href="/">Home</a></li>
+					<li><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucao %}				<li><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li><a href="/blog/">Blog</a></li>
+					<li><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+				 <div class="slider-wrapper theme-default">
+				{% if slides %}
+                <div id="slider" class="nivoSlider ">
+					{% for slide in slides %}
+                    <a href="{{ slide.link }}" ><img src="/media/{{ slide.image }}" alt="{{ slide.name }}" title="{{ slide.subtitle }}" /> </a>
+
+					{% endfor %}
+                </div>
+				{% endif %}
+            </div>
+<div class="fb-like" data-href="https://www.facebook.com/CoeusIT" data-send="false" data-layout="button_count" data-width="600" data-show-faces="true"></div>
+            <div class="section">
+                	<h1>
+                    	Quem Somos
+                    </h1>
+                    <p> Fundada em Julho de 2012 a Coeus é uma empresa incubada no Instituto Tecnológico de Pernambuco (ITEP) que atua no desenvolvimento de aplicativos para dispositivos móveis e Smart TVs além de prestar serviço na área de Visão Computacional e Inteligência Artificial.</p>
+<p> O nosso grande diferencial é dotar nossas soluções com técnicas de Inteligência Computacional, Inteligência Artificial e Realidade Aumentada melhorando a interação com o usuário tornando nossas soluções mais úteis. </p>
+                	<div id="readMore"><a href="/quem-somos/">Leia Mais</a></div>
+                </div> 
+				<ul class="blog">
+					<li>
+                    	<div class="squareTitle">
+                        </div>
+						<div>
+							<img  class="ImageBorderShadow" src="/media/images/inteligencia.png" alt=""/>
+							<p> A Coeus utiliza técnicas da Inteligência Computacional e Artificial no desenvolvimento de soluções. Contamos com uma equipe especializada na utilização dessas técnicas que permitem o desenvolvimento de soluções de alta qualidade e utilidade, facilitando a interação do usuário com nossas soluções.</p>							
+						</div>                     
+					</li>
+					<li>
+                    	<div class="squareTitle">
+                        </div>
+						<div>
+							<img  class="ImageBorderShadow" src="/media/images/mobilidade.png" alt=""/>
+							<p> A Coeus possui uma equipe experiente que detém conhecimento de tecnologias inovadoras que auxiliam o desenvolvimento e manutenção de soluções multiplataformas. Assumimos o compromisso de disponibilizar nossas soluções nos principais dispositivos móveis. </p>
+						</div>                                             
+					</li>
+					<li>
+	                    <div class="squareTitle">
+                        </div>
+						<div>
+							<img  class="ImageBorderShadow" src="/media/images/inovacao.png" alt=""/>
+							<p> Inovação significa novidade ou renovação. A Coeus possui uma equipe com experiência em
+P&D, que promove o desenvolvimento de soluções inovadoras do segmento de softwares
+móveis, com técnicas estabelecidas na academia que aos poucos serão inseridas no mercado.</p>                            
+						</div>                       
+					</li>
+				</ul>	              
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+                        <a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p>&#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>  

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Contato - COEUS</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />		
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+                <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>
+
+                 <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-34174132-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                </script>
+
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li ><a href="/">Home</a></li>
+					<li><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucao %}					<li ><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li><a href="/blog/">Blog</a></li>
+					<li class="selected"><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+             <div id="banerTitleWrap" >
+                    <div id="bannerB">                               
+                        <div id="chipL"></div>
+                        <span id="rib"></span>
+                       <span id="Title">Contato</span>
+                    </div>
+                 </div>
+                <div class="navigation">
+                	<ul class="navigationList">
+                    	<li>
+                        	<a href="/">Home</a>
+                            &raquo; 					 											
+                        </li>
+                        <li>
+                        	<a href="#">Contato</a>                            
+                        </li>
+                    </ul>
+                </div>							
+			<div id="contatodDescription">  
+            	<h2>Coeus - Aplicativos Inteligentes</h2>	          	               
+				<div class="contatoItem">
+                    <h4>Fale conosco:</h4>
+                    <p>contato@coeus.com.br - (81) 3183-4349</p>
+                </div>    		
+                <div class="contatoItem">
+                	<h4>Faça uma visita:</h4>
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE <br>
+                    CEP: 50740-540 </p>
+                </div>              
+                 <div class="contatoItem">
+                	<h4>Facebook:</h4>
+                	<a target="blank" href="http://www.facebook.com/CoeusIT">www.facebook.com/CoeusIT</a>
+                </div>  
+                <div class="contatoItem">
+                	<h4>Twitter:</h4>
+                	<a target="blank" href="http://www.twitter.com/coeusti">http://www.twitter.com/coeusti</a>
+                </div>                                             	 
+                <div class="contatoItem">
+                	<h4>Linkedin:</h4>
+                	<a target="blank" href="http://www.linkedin.com/company/2689286">http://www.linkedin.com./company/2689286</a>
+                </div>                                             	 
+            </div>				
+			<div id="contatoMap">
+            	<img class="ImageBorderShadow" src="http://maps.google.com/maps/api/staticmap?center=-8.051071,-34.947982&zoom=14&size=300x200&maptype=roadmap
+&markers=color:blue%7Clabel:%7C-8.057424,-34.952112&sensor=false"/>
+			<br><a href="https://maps.google.com.br/maps?q=ITEP+-+Instituto+de+Tecnologia+de+Pernambuco&hl=pt-BR&ll=-8.051666,-34.945621&spn=0.021926,0.03695&sll=-8.057424,-34.952112&sspn=0.005481,0.009238&oq=cid&gl=BR&hq=ITEP+-+Instituto+de+Tecnologia+de&hnear=Pernambuco&t=m&z=15"  target="_blank">Mapa Ampliado</a>
+             <div>
+                <p> Uma empresa incubada no:</p>
+                	<p id="icoLinks">
+                        <a href="http://www.itep.br" target="_blank"><img src="/media/images/itep.png"/></a>
+                        <a target="_blank" href="http://www.itep.br/index.php?option=com_content&view=article&id=55&Itemid=203"><img src="/media/images/incubatep.png"/></a>
+                    </p>
+                </div>
+            </div>				
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+                        <a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p> &#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>  

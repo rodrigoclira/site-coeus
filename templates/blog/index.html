@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Blog - COEUS</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+	        <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>
+
+                 <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-34174132-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                </script>
+
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li ><a href="/">Home</a></li>
+					<li><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucao %}					<li><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li class="selected"><a href="/blog/">Blog</a></li>
+					<li><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+            <div id="banerTitleWrap" >
+                    <div id="bannerB">                               
+                        <div id="chipL"></div>
+                        <span id="rib"></span>
+                       <span id="Title">Blog Coeus</span>
+                    </div>
+                 </div>
+                <div class="navigation">
+                	<ul class="navigationList">
+                    	<li>
+                        	<a href="/">Home</a>
+                            &raquo; 					 											
+                        </li>
+                        <li>
+                        	<a href="#">Blog</a>                            
+                        </li>
+                    </ul>
+                </div>
+				<div class="rigthColumn">
+                <ul>
+			{% load comments %}
+			{% for post in posts %}
+			{% get_comment_count for blog.post post.id as comment_count %}
+					<li>		
+						<div class="newAbstract">                        	
+							<h2>{{ post.title }}</h2> 
+                            <p id="postDescription">Postado em <a href="/blog/posts/{{ post.published|date:'Y' }}/{{ post.published|date:'m' }}/">{{ post.published|date:"d/m/Y" }}</a> no Blog da Coeus <a href="/blog/post/{{ post.id }}/#comentarios" class="postComments"> {{ comment_count }} Comentario{{ comment_count|pluralize }}</a></p>
+							<p>{{ post.description|safe }}</p>
+                            <div id="readMore"><a  href="/blog/post/{{ post.id }}/">Leia Mais</a></div>
+						</div>
+					</li>
+			{% empty %}
+			 <h1> Sem postagem </h1>
+			{% endfor %}
+				</ul> 
+                </div>
+                <div class="leftColumn">
+                	<div class="recentPosts">
+                       	<div id="banerWrap">
+                            <div id="bannerB">
+                                <div id="chipR"></div>
+                                <div id="chipL"></div>
+                                Notícias Recentes
+                            </div>
+                        </div>
+                        <ul>                        	
+      					{% for recent in recent_posts %}                       	
+                            <li><a href="/blog/post/{{ recent.id }}/"> {{ recent.title }}</a></li>
+						{% empty %}
+							Sem posts recentes
+						{% endfor %}                           
+                        </ul>
+                    </div>
+                    
+                    <div class="archivePosts">
+                    	<div id="banerWrap">
+                            <div id="bannerB">
+                                <div id="chipR"></div>
+                                <div id="chipL"></div>
+                                Arquivo
+                            </div>
+                        </div>
+                        <ul>
+						{% for mes,ano,quantidade in post_months %}
+						
+							{% if mes = 1 %}
+						            <li><a href="/blog/posts/{{ ano }}/1">Janeiro {{ ano }} ({{ quantidade }})</a></li>					{% endif %}
+							{% if mes = 2 %}
+						            <li><a href="/blog/posts/{{ ano }}/2">Fevereiro {{ ano }} ({{ quantidade }})</a></li>	
+							{% endif %}						
+							{% if mes = 3 %}
+						            <li><a href="/blog/posts/{{ ano }}/3">Março {{ ano }} ({{ quantidade }})</a></li>					
+							{% endif %}
+							{% if mes = 4 %}
+						            <li><a href="/blog/posts/{{ ano }}/4">Abril {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 5 %}
+						            <li><a href="/blog/posts/{{ ano }}/5">Maio {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 6 %}
+						            <li><a href="/blog/posts/{{ ano }}/6">Junho {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 7 %}
+						            <li><a href="/blog/posts/{{ ano }}/7">Julho {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 8 %}
+						            <li><a href="/blog/posts/{{ ano }}/8">Agosto {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 9 %}
+						            <li><a href="/blog/posts/{{ ano }}/9">Setembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 10 %}
+						            <li><a href="/blog/posts/{{ ano }}/10">Outubro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 11 %}
+						            <li><a href="/blog/posts/{{ ano }}/11">Novembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 12 %}
+						            <li><a href="/blog/posts/{{ ano }}/11">Dezembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+						{% empty %}
+							Sem postagem recente
+						{% endfor %}
+                        </ul>
+                    </div>
+                </div>               
+				<ul class="paging">
+{% if previous_page %}					<li><a href="/blog/posts/page/{{ previous_page }}/"><<</a></li>					{% endif %}
+					<li class="selected"><a href="#">{{ page_id }}</a></li> 
+{% if next_page %}					<li><a href="/blog/posts/page/{{ next_page }}/">>></a></li>
+				</ul> {% endif %}              
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+						<a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p> &#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>  

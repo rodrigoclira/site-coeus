@@ -1,0 +1,63 @@
+[
+	{
+		"model":"home.Slider",
+		"pk": 1,
+		"fields": {
+			"name": "home"
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":1,
+		"fields": {
+			"name":"Software Móveis Corporativos",
+			"icon":"iphoneIcon",
+			"description":"A Coeus atua no desenvolvimento de soluções móveis corporativas para impulsionar e descentralizar a sua empresa, promovendo uma interação mais íntegra e ágil entre os setores e processos que ocorrem dentro de sua corporação. As soluções podem ser disponíveis nas plataformas Android, BlackBerry e iOS."
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":2,
+		"fields": {
+			"name":"Soluções Móveis",
+			"icon":"galaxyIcon",
+			"description":"A Coeus oferece o serviço de desenvolvimento de soluções móveis customizáveis para tablets e smartphones  nas seguintes áreas: Marketing Digital, Mobile Sites, Mobile Advergames e aplicativos para dispositivos móveis em geral."
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":3,
+		"fields": {
+			"name":"Utilitários Móveis",
+			"icon":"ipadMarker",
+			"description":"Com o intuito de facilitar e acelerar as tarefas feitas no dia a dia pelos seus clientes, a Coeus disponibiliza soluções que otimizam o tempo dos seus clientes. O nosso grande diferencial consiste na utilização de técnicas de otimização que melhoram a interação do usuário com a solução, tornando-a mais útil."
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":4,
+		"fields": {
+			"name":"Software para Smart TVs",
+			"icon":"tvIcon",
+			"description":"A nova geração de televisores, conhecidas como Smart TVs, possuem acesso à internet que suporta o desenvolvimento de aplicativos e já contam com seus próprios Markets. Nós atuamos no desenvolvimento de soluções informativas e de entretenimento, além de atuar no cenário de marketing digital para Smart TVs."
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":5,
+		"fields": {
+			"name":"Visão Computacional",
+			"icon":"qrcodeIcon",
+			"description":"Com o expertise em Visão Computacional (VC), a Coeus oferece o serviço de desenvolvimento de soluções em VC. Essas soluções aumentam significativamente a qualidade de um produto ou um processo de sua empresa ou indústria, reduzindo custos e aumentando a produtividade."
+		}
+	},
+	{
+		"model":"areas_de_atuacao.Area",
+		"pk":6,
+		"fields": {
+			"name":"Inteligência Computacional",
+			"icon":"brainIcon",
+			"description":"Com um grande foco no desenvolvimento de técnicas da Inteligência Computacional e com mais de 10 artigos publicados em congressos e periódicos, a Coeus adapta as técnicas aprendidas na Academia às soluções móveis e nos serviços prestados em Visão Computacional."
+		}
+	}
+]

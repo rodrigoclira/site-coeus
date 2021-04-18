@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+.theme-default .nivo-caption {
+	color:#FFF;
+	font-family: Arial, Verdana, sans-serif;
+	font-size:9pt;
+	font-weight:600;
+}
+
+.nivoSlider {
+    position:relative;
+    background:url(../images/loading.gif) no-repeat 50% 50%;
+	height: 350px;
+	overflow:hidden;
+	width:auto;
+	margin-bottom: 30px;
+	box-shadow: 0 0 0 1px #D4D5D5, 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	
+}
+.nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+.theme-default .nivo-caption a {
+    border:0;
+    display:block;
+	color:#198AAD;
+}
+.nivo-controlNav {    
+    display:none;
+}

@@ -1,0 +1,120 @@
+  <!DOCTYPE html>
+  <html xml:lang="pt">
+      <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+          <title>Áreas de Atuação - COEUS</title>
+          <link rel="stylesheet" href="/media/css/style.css" type="text/css" />	
+          <link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />
+          <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+          <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+          </script>
+
+                 <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-34174132-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                </script>
+	
+      </head>
+      <body>
+          <div class="page">
+              <div class="header">
+                  <a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+                  <ul>
+                      <li ><a href="/">Home</a></li>
+                      <li><a href="/quem-somos/">Quem Somos</a></li>
+                      <li class="selected"><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+ {% if solucao %}                     <li><a href="/solucoes/">Soluções</a></li> {% endif %}
+                      <li><a href="/blog/">Blog</a></li>
+                      <li><a href="/contato/">Contato</a></li>                                       
+                  </ul>
+              </div>
+              <div class="body">
+              <div id="banerTitleWrap" >
+                      <div id="bannerB">                               
+                          <div id="chipL"></div>
+                          <span id="rib"></span>
+                         <span id="Title">Áreas de Atuação</span>
+                      </div>
+                   </div>
+                  <div class="navigation">
+                      <ul class="navigationList">
+                          <li>
+                              <a href="/">Home</a>
+                              &raquo; 					 											
+                          </li>
+                          <li>
+                              <a href="#">Áreas de Atuação</a>                            
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="areaAtuacaoHeader">
+                      <img src="/media/images/areas_atuacao.png" class="ImageBorderShadow"/>
+                      <p> Nós oferecemos vários serviços de desenvolvimento de soluções móveis, auxiliando nossos clientes a obterem melhores resultados.</p>
+                      <div class="listContainer">
+                      <ul>
+						{% for area in areas %}
+							{% if not forloop.counter|divisibleby:"2" %}
+                      	<li>
+                        	<a href="#{{ area.name|slugify }}">{{ area.name }}</a>
+                        </li>
+							{% endif %}
+						{% empty %}
+						<p>Sem áreas de atuação</p>
+						{% endfor %}
+                      </ul>
+                      <ul>
+						{% for area in areas %}
+							{% if forloop.counter|divisibleby:"2" %}
+                      	<li>
+                        	<a href="#{{ area.name|slugify }}">{{ area.name }}</a>
+                        </li>
+							{% endif %}
+						{% empty %}
+						<p>Sem áreas de atuação</p>
+						{% endfor %}
+                      </ul>
+                      </div>
+                       <p style="clear: both;"> Entre em <a style="font-size:11pt;" href="/contato/">contato</a> com nossa equipe para propormos nossas soluções.</p>                  		
+                  </div>
+                  
+                  <ul>
+					{% for area in areas %}
+                      <li>	
+                      		<a name="{{ area.name|slugify }}"></a>					                          
+                          <h2 class="imageLeft {{ area.icon }}">{{ area.name }}</h2>
+                          <p>{{ area.description|safe }} </p>                          
+                      </li>
+					{% empty %}
+						<p>Sem áreas de atuação</p>
+					{% endfor %}
+                  </ul>				
+              </div>
+              <div class="footer">				
+                  <div id="Contato">
+                  	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+                        <a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                      <p> contato@coeus.com.br - (081) 3183-4349</p>                	
+                      <p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                      <p>&#169; {{ year }}. Coeus</p>               				                					
+                  </div>
+              </div>
+              </div>
+      </body>
+  </html>  

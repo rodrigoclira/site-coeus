@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Post - COEUS</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+			</div>
+			<div class="body">
+			{% load i18n %}
+			<div class="postCommentForm">
+		  	{% load comments %}
+				<form action="{% comment_form_target %}" method="post">{% csrf_token %}
+				{% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
+				{% if form.errors %}
+				<h1>{% blocktrans count counter=form.errors|length %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h1>
+				{% else %}
+				<h1>{% trans "Preview your comment" %}</h1>
+				  <blockquote>{{ comment|linebreaks }}</blockquote>
+				  <p>
+				  {% trans "and" %} <input type="submit" name="submit" class="submit-post" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}:
+				  </p>
+				{% endif %}
+			  {% for field in form %}
+				{% if field.is_hidden %}
+				  <div>{{ field }}</div>
+				{% else %}
+				{% if field.name != 'url' %}
+				  <p
+					{% if field.errors %} class="error"{% endif %}
+					{% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+				
+					  {% if  field.name != 'email' %} 
+						{{ field.label_tag }} {{ field }}
+					  {% else %}
+						<label for="id_email">E-mail</label>
+						{{ field }}
+					  {% endif %}
+				  </p>
+				   {% if field.errors %}{{ field.errors }}{% endif %} 
+					{% endif %}
+				{% endif %}
+			  {% endfor %}
+				<p class="submit">
+				<input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
+				</p>
+			  </form>
+				<a href="{{ next }}">Voltar para o post </a>
+			</div>
+		</div>
+	</body>
+</html>  

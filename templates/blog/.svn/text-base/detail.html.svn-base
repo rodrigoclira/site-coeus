@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>COEUS - {{ post.title }}</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  				
+	        <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>
+
+                 <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-34174132-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                </script>
+
+	</head>
+	<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=396740490389812";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li ><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucoes	%}				<li><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li><a href="/blog/">Blog</a></li>
+					<li><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+             <div id="banerTitleWrap" >
+                    <div id="bannerB">                               
+                        <div id="chipL"></div>
+                        <span id="rib"></span>
+                      <span id="Title">Blog Coeus</span>
+                    </div>
+                 </div>
+                <div class="navigation">
+                	<ul class="navigationList">
+                    	<li>
+                        	<a href="/">Home</a>
+                            &raquo; 					 											
+                        </li>
+                        <li>
+                        	<a href="/blog/">Blog</a> 
+                             &raquo;                           
+                        </li>
+                         <li>
+                        	<a href="#">{{ post.title }}</a>                            
+                        </li>
+                    </ul>
+                </div>				                     
+				<div class="postHeader">
+				{% load comments %}
+				{% get_comment_count for blog.post post.id as comment_count %}
+				<h1> {{ post.title }} </h1>
+                <p id="postDescription">Postado em <a href="/blog/posts/{{ post.published|date:'Y' }}/{{ post.published|date:'m' }}/">{{ post.published|date:"d/m/Y" }}</a> no Blog da Coeus <a href="/blog/post/{{ post.id }}/#comentario" class="postComments"> {{ comment_count }} Comentario{{ comment_count|pluralize }}</a></p>
+				<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
+                </div>
+                <div class="rigthColumn">
+                <div class="postBody">
+{% if post.image %}			    <img class="ImageBorderShadow" src="/media/{{ post.image }}"> {% endif %}
+                {{ post.text|safe }}
+				</div>
+ <div class="commentsArea">
+                <h3>{{ comment_count }} Comentario{{ comment_count|pluralize }} para "{{ post.title }}":</h3>
+                    <ul>
+
+{% get_comment_list for blog.post post.id as comment_list %}
+
+{% if comment_list %}
+</br>
+{% for comment in comment_list %}
+	<li>	
+	<div class="comment_{% cycle odd,even %}" id="c{{ comment.id }}">
+	<span class="commum"><h5>{{ comment.name|escape }} comentou em {{ comment.submit_date|date:"d/m/Y" }}:</h5> </span>
+		{{ comment.comment|escape|urlizetrunc:60|linebreaks }}
+	</div>
+	</li>	
+{% endfor %}
+{% else %}
+<p>Sem comentários. Seja o primeiro!</p>
+{% endif %}
+                    </ul>
+                </div>
+                <div class="postCommentForm">
+                    <h3> Deixe um comentário</h3>
+{% render_comment_form for blog.post post.id %}
+                    <p style="color:#F00; font-size:9pt;">Todos os campos são obrigatórios. O e-mail não será exibido no comentário.</p>                                       
+
+                </div>	
+                </div>
+                 <div class="leftColumn">
+                	<div class="recentPosts">
+                        <div id="banerWrap">
+                            <div id="bannerB">
+                                <div id="chipR"></div>
+                                <div id="chipL"></div>
+                                Notícias Recentes
+                            </div>
+                        </div>
+                        <ul>    
+						{% for recent in recent_posts %}                    	
+                            <li><a href="/blog/post/{{ recent.id }}"> {{ recent.title }}</a></li>
+						{% empty %}
+							Sem posts recentes
+						{% endfor %} 
+                        </ul>
+                    </div>
+                    
+                    <div class="archivePosts">
+                    	<div id="banerWrap">
+                            <div id="bannerB">
+                                <div id="chipR"></div>
+                                <div id="chipL"></div>
+                                Arquivo
+                            </div>
+                        </div>
+                         <ul>
+						{% for mes,ano,quantidade in post_months %}
+						
+							{% if mes = 1 %}
+						            <li><a href="/blog/posts/{{ ano }}/1">Janeiro {{ ano }} ({{ quantidade }})</a></li>					{% endif %}
+							{% if mes = 2 %}
+						            <li><a href="/blog/posts/{{ ano }}/2">Fevereiro {{ ano }} ({{ quantidade }})</a></li>	
+							{% endif %}						
+							{% if mes = 3 %}
+						            <li><a href="/blog/posts/{{ ano }}/3">Março {{ ano }} ({{ quantidade }})</a></li>					
+							{% endif %}
+							{% if mes = 4 %}
+						            <li><a href="/blog/posts/{{ ano }}/4">Abril {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 5 %}
+						            <li><a href="/blog/posts/{{ ano }}/5">Maio {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 6 %}
+						            <li><a href="/blog/posts/{{ ano }}/6">Junho {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 7 %}
+						            <li><a href="/blog/posts/{{ ano }}/7">Julho {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 8 %}
+						            <li><a href="/blog/posts/{{ ano }}/8">Agosto {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 9 %}
+						            <li><a href="/blog/posts/{{ ano }}/9">Setembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 10 %}
+						            <li><a href="/blog/posts/{{ ano }}/10">Outubro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 11 %}
+						            <li><a href="/blog/posts/{{ ano }}/11">Novembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+							{% if mes = 12 %}
+						            <li><a href="/blog/posts/{{ ano }}/11">Dezembro {{ ano }} ({{ quantidade }})</a></li>
+							{% endif %}
+						{% empty %}
+							Sem postagem recente
+						{% endfor %}
+                        </ul>
+                    </div>
+                </div>                         
+			</div>
+                 				
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+						<a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p> &#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>  

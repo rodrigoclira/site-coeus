@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xml:lang="pt">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Soluções - COEUS</title>
+		<link rel="stylesheet" href="/media/css/style.css" type="text/css" />		
+		<link rel="shortcut icon" href="/media/images/favicon.png" type="image/x-icon" />  		
+
+                <script src="/media/Scripts/jquery-1.7.2.min.js" ></script>
+                <script>
+                                $(document).ready(function() {
+                                        $(".page").css("min-height", screen.height + "px");
+                            });
+                </script>
+
+                 <script type="text/javascript">
+
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-34174132-1']);
+                _gaq.push(['_trackPageview']);
+
+                (function() {
+                        var ga = document.createElement('script');
+                        ga.type = 'text/javascript';
+                        ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+
+                </script>
+
+	</head>
+	<body>
+		<div class="page">
+			<div class="header">
+				<a href="/" id="logo"><img src="/media/images/marca.png" alt=""/></a>
+				<ul>
+					<li ><a href="/">Home</a></li>
+					<li><a href="/quem-somos/">Quem Somos</a></li>
+					<li><a href="/areas-de-atuacao/">Áreas de Atuação</a></li>
+{% if solucao %}				<li class="selected"><a href="/solucoes/">Soluções</a></li> {% endif %}
+					<li><a href="/blog/">Blog</a></li>
+					<li><a href="/contato/">Contato</a></li>                                       
+				</ul>
+			</div>
+			<div class="body">
+            <div id="banerTitleWrap" >
+                    <div id="bannerB">                               
+                        <div id="chipL"></div>
+                        <span id="rib"></span>
+                      <span id="Title">Soluções</span>
+                    </div>
+                 </div>
+                <div class="navigation">
+                	<ul class="navigationList">
+                    	<li>
+                        	<a href="/">Home</a>
+                            &raquo; 					 											
+                        </li>
+                        <li>
+                        	<a href="#">Soluções</a>                            
+                        </li>
+                    </ul>
+                </div>
+				<ul class="portfolio">
+				{% for solucao in produtos %}
+                	<li>
+                    	<h3>{{ solucao.name }}</h3>
+                        <a href="/solucoes/{{ solucao.id }}"><img class="ImageBorderShadow" src="/media/{{ solucao.image }}"/></a>
+                        <p>{{ solucao.summary }}</p>                    							                        
+                    </li>
+				{% empty %}
+					Sem produto
+				{% endfor %}
+                </ul>				
+			</div>
+			<div class="footer">				
+				<div id="Contato">
+                	<p id="icoLinks">
+						<a target="_blank" href="http://facebook.com/CoeusIT"><img src="/media/images/facebook.png"></a>
+						<a target="_blank" href="http://twitter.com/coeusti"><img src="/media/images/twitter.png"></a>
+                        <a target="_blank" href="http://www.linkedin.com/company/2689286"><img src="/media/images/linkedinfooter.png"/></a>
+					</p>
+                    <p> contato@coeus.com.br - (81) 3183-4349</p>                	
+                	<p> Av. Prof. Luiz Freire, 700, Bloco C, Sala 24, CDU - Recife-PE</p>	                
+                	<p> &#169; {{ year }}. Coeus</p>               				                					
+				</div>
+			</div>
+           </div>
+	</body>
+</html>  
